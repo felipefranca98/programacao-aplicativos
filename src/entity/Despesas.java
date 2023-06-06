@@ -1,6 +1,8 @@
 package entity;
 
 public class Despesas {
+
+
 	private int id;	
 	private int user;
 	private int mes;
@@ -26,6 +28,7 @@ public class Despesas {
 		// TODO Auto-generated constructor stub
 	}
 
+	
 	public int getId() {
 		return id;
 	}
@@ -41,6 +44,7 @@ public class Despesas {
 	public void setUser(int user) {
 		this.user = user;
 	}
+	
 	
 	public int getMes() {
 		return mes;
@@ -96,5 +100,7 @@ public class Despesas {
 
 	public void setTotal(double total) {
 		this.total = total;
-	}	
+	}
+	
+	
 }

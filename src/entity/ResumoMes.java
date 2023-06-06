@@ -1,6 +1,7 @@
 package entity;
 
 public class ResumoMes {
+
 	private int id;
 	private int user;
 	private int mes;
@@ -32,6 +33,7 @@ public class ResumoMes {
 		this.user = user;
 	}
 
+	
 	public int getMes() {
 		return mes;
 	}
@@ -94,5 +96,7 @@ public class ResumoMes {
 
 	public void setTotal(double total) {
 		this.total = total;
-	}	
+	}
+	
+	
 }

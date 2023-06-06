@@ -1,6 +1,7 @@
 package entity;
 
 public class DespesasOcasionais {
+
 	private int id;
 	private int user;
 	private int mes;
@@ -9,6 +10,7 @@ public class DespesasOcasionais {
 	private double mensal;
 	private double ocasional;
 	private double total;
+	
 	
 	public DespesasOcasionais() {
 		
@@ -71,6 +73,7 @@ public class DespesasOcasionais {
 	public void setTotal(double total) {
 		this.total = total;
 	}
+	
 
 	public int getId() {
 		return id;
@@ -85,6 +88,7 @@ public class DespesasOcasionais {
 	}
 
 	public void setUser(int user) {
-		this.user = user;
+		this.user =user;
 	}
+	
 }
