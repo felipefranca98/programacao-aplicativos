@@ -10,9 +10,11 @@ import java.sql.Statement;
 import java.util.Properties;
 
 public class BancoDados {
+
 	private static Connection conn = null;
 	
-	private static Properties carregarPropriedades()throws IOException {	
+	private static Properties carregarPropriedades()throws IOException{
+		
 		FileInputStream propriedadesBanco = null;
 		
 		propriedadesBanco = new FileInputStream("database.properties");
@@ -23,8 +25,10 @@ public class BancoDados {
 		return props;
 	}
 	
+	
 	public static Connection conectar()throws SQLException, IOException {
-		if(conn == null) {
+		if(conn == null)
+		{
 			System.out.println("entrou banco");
 
 			Properties props = carregarPropriedades();
@@ -34,23 +38,36 @@ public class BancoDados {
 		return conn;
 	}
 	
+	
+	
 	public static void desconectar() throws SQLException {
-		if(conn != null) {
+	
+		if(conn != null)
+		{
 			conn.close();
 			conn = null;
-		}	
+		}
+		
 	}
 
-	public static void finalizarStatement(Statement st) throws SQLException {	
-		if(st != null) {
+
+	public static void finalizarStatement(Statement st) throws SQLException{
+		
+		if(st != null)
+		{
 			st.close();
-		}	
+		}
+		
 	}
 	
 	public static void finalizarResultSet(ResultSet rs) throws SQLException{
-		if(rs != null) {
+		
+		if(rs != null)
+		{
 			rs.close();
 		}
+		
 	}
+
 }
 
