@@ -17,6 +17,12 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JToolBar;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
 
 public class JanelaDespesas {
 
@@ -50,11 +56,11 @@ public class JanelaDespesas {
 		JPanel panel = new JPanel();
 		panel.setLayout(null);
 		panel.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Tabela", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		panel.setBounds(10, 11, 594, 539);
+		panel.setBounds(10, 120, 594, 430);
 		frmDespesas.getContentPane().add(panel);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 22, 574, 506);
+		scrollPane.setBounds(10, 24, 574, 395);
 		panel.add(scrollPane);
 		
 		table = new JTable();
@@ -81,7 +87,8 @@ public class JanelaDespesas {
 		JButton btnCadastrarCat = new JButton("<html><center>Cadastrar<br>Categoria</center>");
 		btnCadastrarCat.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				gui.JanelaCadastrarCategorias.main(null, 2);
+				frmDespesas.dispose();
 			}
 		});
 		panelCategorias.add(btnCadastrarCat);
@@ -111,7 +118,8 @@ public class JanelaDespesas {
 		JButton btnCadastrarDesp = new JButton("<html><center>Cadastrar<br>Despesa</center>");
 		btnCadastrarDesp.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				gui.JanelaCadastrarDespesas.main(null);
+				frmDespesas.dispose();
 			}
 		});
 		panelDespesas.add(btnCadastrarDesp);
@@ -131,5 +139,58 @@ public class JanelaDespesas {
 			}
 		});
 		panelDespesas.add(btnExcluirDesp);
+		
+		JPanel panelModulos = new JPanel();
+		panelModulos.setBorder(new TitledBorder(null, "M\u00F3dulos", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		panelModulos.setBounds(10, 11, 594, 85);
+		frmDespesas.getContentPane().add(panelModulos);
+		
+		JButton btnRendimentos = new JButton("Rendimentos");
+		btnRendimentos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				gui.JanelaRendimentos.main(null);
+				frmDespesas.dispose();
+			}
+		});
+		
+		JButton btnDespesas = new JButton("Despesas");
+		btnDespesas.setEnabled(false);
+		panelModulos.setLayout(new GridLayout(0, 2, 0, 0));
+		panelModulos.add(btnRendimentos);
+		panelModulos.add(btnDespesas);
+		
+		JButton btnInvestimentos = new JButton("Investimentos");
+		btnInvestimentos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				gui.JanelaInvestimentos.main(null);
+				frmDespesas.dispose();
+			}
+		});
+		panelModulos.add(btnInvestimentos);
+		
+		JButton btnFundos = new JButton("Fundos de Despesas");
+		btnFundos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				gui.JanelaFundoDespesas.main(null);
+				frmDespesas.dispose();
+			}
+		});
+		panelModulos.add(btnFundos);
+		
+		JButton btnResumos = new JButton("Resumos");
+		btnResumos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				gui.JanelaResumos.main(null);
+				frmDespesas.dispose();
+			}
+		});
+		panelModulos.add(btnResumos);
+		
+		JButton btnNewButton_1 = new JButton("Relat\u00F3rios");
+		panelModulos.add(btnNewButton_1);
+		
+		JSeparator separator_1 = new JSeparator();
+		separator_1.setBounds(10, 107, 594, 2);
+		frmDespesas.getContentPane().add(separator_1);
 	}
 }

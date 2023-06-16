@@ -13,10 +13,30 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 import javax.swing.JButton;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import java.awt.GridLayout;
+import javax.swing.JSeparator;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class JanelaResumos {
 
 	private JFrame frmResumos;
+	private JTable tableDez;
+	private JTable tableNov;
+	private JTable tableOut;
+	private JTable tableSet;
+	private JTable tableJul;
+	private JTable tableAgo;
+	private JTable tableJun;
+	private JTable tableMai;
+	private JTable tableAbr;
+	private JTable tableMar;
+	private JTable tableFev;
+	private JTable tableJan;
+	private JTable tableAnual;
 
 	/**
 	 * Launch the application.
@@ -53,61 +73,244 @@ public class JanelaResumos {
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.setBorder(new TitledBorder(null, "Resumo", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		tabbedPane.setBounds(10, 42, 414, 408);
+		tabbedPane.setBounds(10, 153, 414, 297);
 		frmResumos.getContentPane().add(tabbedPane);
 		
 		JTabbedPane tabbedPaneMensal = new JTabbedPane(JTabbedPane.LEFT);
 		tabbedPane.addTab("Mensal", null, tabbedPaneMensal, null);
 		
-		JPanel panelJan = new JPanel();
-		tabbedPaneMensal.addTab("Janeiro", null, panelJan, null);
+		JScrollPane scrollPaneJan = new JScrollPane();
+		tabbedPaneMensal.addTab("Janeiro", null, scrollPaneJan, null);
 		
-		JPanel panelFev = new JPanel();
-		tabbedPaneMensal.addTab("Fevereiro", null, panelFev, null);
+		tableJan = new JTable();
+		tableJan.setModel(new DefaultTableModel(
+			new Object[][] {
+			},
+			new String[] {
+				"Descrição", "Total Mensal"
+			}
+		));
+		scrollPaneJan.setViewportView(tableJan);
 		
-		JPanel panelMar = new JPanel();
-		tabbedPaneMensal.addTab("Mar\u00E7o", null, panelMar, null);
+		JScrollPane scrollPaneFev = new JScrollPane();
+		tabbedPaneMensal.addTab("Fevereiro", null, scrollPaneFev, null);
 		
-		JPanel panelAbr = new JPanel();
-		tabbedPaneMensal.addTab("Abril", null, panelAbr, null);
+		tableFev = new JTable();
+		tableFev.setModel(new DefaultTableModel(
+			new Object[][] {
+			},
+			new String[] {
+				"Descrição", "Total Mensal"
+			}
+		));
+		scrollPaneFev.setViewportView(tableFev);
 		
-		JPanel panelMai = new JPanel();
-		tabbedPaneMensal.addTab("Maio", null, panelMai, null);
+		JScrollPane scrollPaneMar = new JScrollPane();
+		tabbedPaneMensal.addTab("Mar\u00E7o", null, scrollPaneMar, null);
 		
-		JPanel panelJun = new JPanel();
-		tabbedPaneMensal.addTab("Junho", null, panelJun, null);
+		tableMar = new JTable();
+		tableMar.setModel(new DefaultTableModel(
+			new Object[][] {
+			},
+			new String[] {
+				"Descrição", "Total Mensal"
+			}
+		));
+		scrollPaneMar.setViewportView(tableMar);
 		
-		JPanel panelJul = new JPanel();
-		tabbedPaneMensal.addTab("Julho", null, panelJul, null);
+		JScrollPane scrollPaneAbr = new JScrollPane();
+		tabbedPaneMensal.addTab("Abril", null, scrollPaneAbr, null);
 		
-		JPanel panelAgo = new JPanel();
-		tabbedPaneMensal.addTab("Agosto", null, panelAgo, null);
+		tableAbr = new JTable();
+		tableAbr.setModel(new DefaultTableModel(
+			new Object[][] {
+			},
+			new String[] {
+				"Descrição", "Total Mensal"
+			}
+		));
+		scrollPaneAbr.setViewportView(tableAbr);
 		
-		JPanel panelSet = new JPanel();
-		tabbedPaneMensal.addTab("Setembro", null, panelSet, null);
+		JScrollPane scrollPaneMai = new JScrollPane();
+		tabbedPaneMensal.addTab("Maio", null, scrollPaneMai, null);
 		
-		JPanel panelOut = new JPanel();
-		tabbedPaneMensal.addTab("Outubro", null, panelOut, null);
+		tableMai = new JTable();
+		tableMai.setModel(new DefaultTableModel(
+			new Object[][] {
+			},
+			new String[] {
+				"Descrição", "Total Mensal"
+			}
+		));
+		scrollPaneMai.setViewportView(tableMai);
 		
-		JPanel panelNov = new JPanel();
-		tabbedPaneMensal.addTab("Novembro", null, panelNov, null);
+		JScrollPane scrollPaneJun = new JScrollPane();
+		tabbedPaneMensal.addTab("Junho", null, scrollPaneJun, null);
 		
-		JPanel panelDez = new JPanel();
-		tabbedPaneMensal.addTab("Dezembro", null, panelDez, null);
+		tableJun = new JTable();
+		tableJun.setModel(new DefaultTableModel(
+			new Object[][] {
+			},
+			new String[] {
+				"Descrição", "Total Mensal"
+			}
+		));
+		scrollPaneJun.setViewportView(tableJun);
 		
-		JPanel panelAnual = new JPanel();
-		tabbedPane.addTab("Anual", null, panelAnual, null);
+		JScrollPane scrollPaneJul = new JScrollPane();
+		tabbedPaneMensal.addTab("Julho", null, scrollPaneJul, null);
+		
+		tableJul = new JTable();
+		tableJul.setModel(new DefaultTableModel(
+			new Object[][] {
+			},
+			new String[] {
+				"Descrição", "Total Mensal"
+			}
+		));
+		scrollPaneJul.setViewportView(tableJul);
+		
+		JScrollPane scrollPaneAgo = new JScrollPane();
+		tabbedPaneMensal.addTab("Agosto", null, scrollPaneAgo, null);
+		
+		tableAgo = new JTable();
+		tableAgo.setModel(new DefaultTableModel(
+			new Object[][] {
+			},
+			new String[] {
+				"Descrição", "Total Mensal"
+			}
+		));
+		scrollPaneAgo.setViewportView(tableAgo);
+		
+		JScrollPane scrollPaneSet = new JScrollPane();
+		tabbedPaneMensal.addTab("Setembro", null, scrollPaneSet, null);
+		
+		tableSet = new JTable();
+		tableSet.setModel(new DefaultTableModel(
+			new Object[][] {
+			},
+			new String[] {
+				"Descrição", "Total Mensal"
+			}
+		));
+		scrollPaneSet.setViewportView(tableSet);
+		
+		JScrollPane scrollPaneOut = new JScrollPane();
+		tabbedPaneMensal.addTab("Outubro", null, scrollPaneOut, null);
+		
+		tableOut = new JTable();
+		tableOut.setModel(new DefaultTableModel(
+			new Object[][] {
+			},
+			new String[] {
+				"Descrição", "Total Mensal"
+			}
+		));
+		scrollPaneOut.setViewportView(tableOut);
+		
+		JScrollPane scrollPaneNov = new JScrollPane();
+		tabbedPaneMensal.addTab("Novembro", null, scrollPaneNov, null);
+		
+		tableNov = new JTable();
+		tableNov.setModel(new DefaultTableModel(
+			new Object[][] {
+			},
+			new String[] {
+				"Descrição", "Total Mensal"
+			}
+		));
+		scrollPaneNov.setViewportView(tableNov);
+		
+		JScrollPane scrollPaneDez = new JScrollPane();
+		tabbedPaneMensal.addTab("Dezembro", null, scrollPaneDez, null);
+		
+		tableDez = new JTable();
+		tableDez.setModel(new DefaultTableModel(
+			new Object[][] {
+			},
+			new String[] {
+				"Descrição", "Total Mensal"
+			}
+		));
+		scrollPaneDez.setViewportView(tableDez);
+		
+		JScrollPane scrollPaneAnual = new JScrollPane();
+		tabbedPane.addTab("Anual", null, scrollPaneAnual, null);
+		
+		tableAnual = new JTable();
+		tableAnual.setModel(new DefaultTableModel(
+			new Object[][] {
+			},
+			new String[] {
+				"Descrição", "Mensal (x12)", "Ocasional", "Total Anual"
+			}
+		));
+		scrollPaneAnual.setViewportView(tableAnual);
 		
 		JComboBox comboBox = new JComboBox();
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"2023", "2022", "2021", "2020", "2019", "..."}));
 		comboBox.setSelectedIndex(0);
-		comboBox.setBounds(200, 11, 90, 22);
+		comboBox.setBounds(200, 120, 90, 22);
 		frmResumos.getContentPane().add(comboBox);
 		
 		JLabel lblAno = new JLabel("ANO");
 		lblAno.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblAno.setHorizontalAlignment(SwingConstants.TRAILING);
-		lblAno.setBounds(144, 11, 46, 22);
+		lblAno.setBounds(144, 120, 46, 22);
 		frmResumos.getContentPane().add(lblAno);
+		
+		JPanel panelModulos = new JPanel();
+		panelModulos.setBorder(new TitledBorder(null, "M\u00F3dulos", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		panelModulos.setBounds(10, 11, 414, 85);
+		frmResumos.getContentPane().add(panelModulos);
+		panelModulos.setLayout(new GridLayout(0, 2, 0, 0));
+		
+		JButton btnRendimentos = new JButton("Rendimentos");
+		btnRendimentos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				gui.JanelaRendimentos.main(null);
+				frmResumos.dispose();
+			}
+		});
+		panelModulos.add(btnRendimentos);
+		
+		JButton btnDespesas = new JButton("Despesas");
+		btnDespesas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				gui.JanelaDespesas.main(null);
+				frmResumos.dispose();
+			}
+		});
+		panelModulos.add(btnDespesas);
+		
+		JButton btnInvestimentos = new JButton("Investimentos");
+		btnInvestimentos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				gui.JanelaInvestimentos.main(null);
+				frmResumos.dispose();
+			}
+		});
+		panelModulos.add(btnInvestimentos);
+		
+		JButton btnFundos = new JButton("Fundos de Despesas");
+		btnFundos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				gui.JanelaFundoDespesas.main(null);
+				frmResumos.dispose();
+			}
+		});
+		panelModulos.add(btnFundos);
+		
+		JButton btnResumos = new JButton("Resumos");
+		btnResumos.setEnabled(false);
+		panelModulos.add(btnResumos);
+		
+		JButton btnNewButton_1 = new JButton("Relat\u00F3rios");
+		panelModulos.add(btnNewButton_1);
+		
+		JSeparator separator = new JSeparator();
+		separator.setBounds(10, 107, 414, 2);
+		frmResumos.getContentPane().add(separator);
 	}
 }

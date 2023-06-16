@@ -49,11 +49,11 @@ public class JanelaInvestimentos {
 		JPanel panel = new JPanel();
 		panel.setLayout(null);
 		panel.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Tabela", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		panel.setBounds(10, 11, 594, 260);
+		panel.setBounds(10, 120, 594, 150);
 		frmInvestimentos.getContentPane().add(panel);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 23, 574, 226);
+		scrollPane.setBounds(10, 24, 574, 115);
 		panel.add(scrollPane);
 		
 		table = new JTable();
@@ -80,7 +80,8 @@ public class JanelaInvestimentos {
 		JButton btnCadastrarInv = new JButton("<html><center>Cadastrar<br>Investimento</center>");
 		btnCadastrarInv.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				gui.JanelaCadastrarInvestimentos.main(null);
+				frmInvestimentos.dispose();
 			}
 		});
 		panelInvestimentos.add(btnCadastrarInv);
@@ -100,5 +101,58 @@ public class JanelaInvestimentos {
 			}
 		});
 		panelInvestimentos.add(btnExcluirInv);
+		
+		JPanel panelModulos = new JPanel();
+		panelModulos.setBorder(new TitledBorder(null, "M\u00F3dulos", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		panelModulos.setBounds(10, 11, 594, 85);
+		frmInvestimentos.getContentPane().add(panelModulos);
+		panelModulos.setLayout(new GridLayout(0, 2, 0, 0));
+		
+		JButton btnRendimentos = new JButton("Rendimentos");
+		btnRendimentos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				gui.JanelaRendimentos.main(null);
+				frmInvestimentos.dispose();
+			}
+		});
+		panelModulos.add(btnRendimentos);
+		
+		JButton btnDespesas = new JButton("Despesas");
+		btnDespesas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				gui.JanelaDespesas.main(null);
+				frmInvestimentos.dispose();
+			}
+		});
+		panelModulos.add(btnDespesas);
+		
+		JButton btnInvestimentos = new JButton("Investimentos");
+		btnInvestimentos.setEnabled(false);
+		panelModulos.add(btnInvestimentos);
+		
+		JButton btnFundos = new JButton("Fundos de Despesas Ocasionais");
+		btnFundos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				gui.JanelaFundoDespesas.main(null);
+				frmInvestimentos.dispose();
+			}
+		});
+		panelModulos.add(btnFundos);
+		
+		JButton btnResumos = new JButton("Resumos");
+		btnResumos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				gui.JanelaResumos.main(null);
+				frmInvestimentos.dispose();
+			}
+		});
+		panelModulos.add(btnResumos);
+		
+		JButton btnNewButton_1 = new JButton("Relat\u00F3rios");
+		panelModulos.add(btnNewButton_1);
+		
+		JSeparator separator_1 = new JSeparator();
+		separator_1.setBounds(10, 107, 594, 2);
+		frmInvestimentos.getContentPane().add(separator_1);
 	}
 }
