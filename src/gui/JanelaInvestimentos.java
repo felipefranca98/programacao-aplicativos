@@ -1,7 +1,6 @@
 package gui;
 
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
@@ -73,7 +72,7 @@ public class JanelaInvestimentos {
 		
 		JPanel panelInvestimentos = new JPanel();
 		panelInvestimentos.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Investimentos", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		panelInvestimentos.setBounds(625, 11, 149, 260);
+		panelInvestimentos.setBounds(625, 79, 149, 230);
 		frmInvestimentos.getContentPane().add(panelInvestimentos);
 		panelInvestimentos.setLayout(new GridLayout(0, 1, 0, 0));
 		
@@ -154,5 +153,15 @@ public class JanelaInvestimentos {
 		JSeparator separator_1 = new JSeparator();
 		separator_1.setBounds(10, 107, 594, 2);
 		frmInvestimentos.getContentPane().add(separator_1);
+		
+		JButton btnLogout = new JButton("Logout");
+		btnLogout.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				gui.JanelaInicial.main(null);
+				frmInvestimentos.dispose();
+			}
+		});
+		btnLogout.setBounds(625, 11, 149, 57);
+		frmInvestimentos.getContentPane().add(btnLogout);
 	}
 }

@@ -1,7 +1,6 @@
 package gui;
 
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JSeparator;
@@ -74,7 +73,7 @@ public class JanelaRendimentos {
 		
 		JPanel panelCategorias = new JPanel();
 		panelCategorias.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Categorias", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		panelCategorias.setBounds(625, 11, 149, 260);
+		panelCategorias.setBounds(625, 79, 149, 230);
 		frmRendimentos.getContentPane().add(panelCategorias);
 		
 		JButton btnCadastrarCat = new JButton("<html><center>Cadastrar<br>Categoria</center>");
@@ -105,7 +104,7 @@ public class JanelaRendimentos {
 		
 		JPanel panelRendimentos = new JPanel();
 		panelRendimentos.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Rendimentos", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		panelRendimentos.setBounds(625, 290, 149, 260);
+		panelRendimentos.setBounds(625, 320, 149, 230);
 		frmRendimentos.getContentPane().add(panelRendimentos);
 		panelRendimentos.setLayout(new GridLayout(0, 1, 0, 0));
 		
@@ -186,5 +185,15 @@ public class JanelaRendimentos {
 		JSeparator separator_1 = new JSeparator();
 		separator_1.setBounds(10, 107, 594, 2);
 		frmRendimentos.getContentPane().add(separator_1);
+		
+		JButton btnLogout = new JButton("Logout");
+		btnLogout.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				gui.JanelaInicial.main(null);
+				frmRendimentos.dispose();
+			}
+		});
+		btnLogout.setBounds(625, 11, 149, 57);
+		frmRendimentos.getContentPane().add(btnLogout);
 	}
 }

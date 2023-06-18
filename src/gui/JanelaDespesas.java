@@ -1,10 +1,8 @@
 package gui;
 
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import java.awt.BorderLayout;
 import javax.swing.border.TitledBorder;
 import javax.swing.border.EtchedBorder;
 import java.awt.Color;
@@ -17,12 +15,6 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JToolBar;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
 
 public class JanelaDespesas {
 
@@ -80,7 +72,7 @@ public class JanelaDespesas {
 		
 		JPanel panelCategorias = new JPanel();
 		panelCategorias.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Categorias", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		panelCategorias.setBounds(625, 11, 149, 260);
+		panelCategorias.setBounds(625, 79, 149, 230);
 		frmDespesas.getContentPane().add(panelCategorias);
 		panelCategorias.setLayout(new GridLayout(0, 1, 0, 0));
 		
@@ -111,7 +103,7 @@ public class JanelaDespesas {
 		
 		JPanel panelDespesas = new JPanel();
 		panelDespesas.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Despesas", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		panelDespesas.setBounds(625, 290, 149, 260);
+		panelDespesas.setBounds(625, 320, 149, 230);
 		frmDespesas.getContentPane().add(panelDespesas);
 		panelDespesas.setLayout(new GridLayout(0, 1, 0, 0));
 		
@@ -192,5 +184,15 @@ public class JanelaDespesas {
 		JSeparator separator_1 = new JSeparator();
 		separator_1.setBounds(10, 107, 594, 2);
 		frmDespesas.getContentPane().add(separator_1);
+		
+		JButton btnLogout = new JButton("Logout");
+		btnLogout.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				gui.JanelaInicial.main(null);
+				frmDespesas.dispose();
+			}
+		});
+		btnLogout.setBounds(625, 11, 149, 57);
+		frmDespesas.getContentPane().add(btnLogout);
 	}
 }

@@ -1,9 +1,7 @@
 package gui;
 
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
-import java.awt.BorderLayout;
 import javax.swing.JLabel;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
@@ -16,7 +14,6 @@ import javax.swing.border.EtchedBorder;
 import java.awt.Color;
 import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
-
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -101,7 +98,6 @@ public class JanelaCadastrarRendimentos {
 		frmCadastrarRendimentos.getContentPane().add(textValor);
 		
 		JButton btnCadastrar = new JButton("Cadastrar");
-		btnCadastrar.setEnabled(false);
 		btnCadastrar.setBounds(214, 123, 160, 23);
 		frmCadastrarRendimentos.getContentPane().add(btnCadastrar);
 		

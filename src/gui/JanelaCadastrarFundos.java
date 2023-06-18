@@ -1,7 +1,6 @@
 package gui;
 
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -65,7 +64,7 @@ public class JanelaCadastrarFundos {
 		JPanel panelTipo = new JPanel();
 		panelTipo.setLayout(null);
 		panelTipo.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Tipo de Fundo", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		panelTipo.setBounds(10, 67, 175, 80);
+		panelTipo.setBounds(10, 70, 175, 80);
 		frmCadastrarFundos.getContentPane().add(panelTipo);
 		
 		JRadioButton rdbtnOcasional = new JRadioButton("Ocasional");
@@ -91,8 +90,7 @@ public class JanelaCadastrarFundos {
 		frmCadastrarFundos.getContentPane().add(textValor);
 		
 		JButton btnCadastrar = new JButton("Cadastrar");
-		btnCadastrar.setEnabled(false);
-		btnCadastrar.setBounds(214, 90, 160, 23);
+		btnCadastrar.setBounds(214, 93, 160, 23);
 		frmCadastrarFundos.getContentPane().add(btnCadastrar);
 		
 		JButton btnCancelar = new JButton("Cancelar");
@@ -102,7 +100,7 @@ public class JanelaCadastrarFundos {
 				frmCadastrarFundos.dispose();
 			}
 		});
-		btnCancelar.setBounds(214, 124, 160, 23);
+		btnCancelar.setBounds(214, 127, 160, 23);
 		frmCadastrarFundos.getContentPane().add(btnCancelar);
 		
 		JLabel lblMesAno = new JLabel("Mês/Ano");

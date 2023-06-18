@@ -1,7 +1,6 @@
 package gui;
 
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JComboBox;
@@ -15,7 +14,6 @@ import javax.swing.SwingConstants;
 import javax.swing.JButton;
 import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
-
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -92,8 +90,7 @@ public class JanelaCadastrarInvestimentos {
 		frmCadastrarInvestimentos.getContentPane().add(textValor);
 		
 		JButton btnCadastrar = new JButton("Cadastrar");
-		btnCadastrar.setEnabled(false);
-		btnCadastrar.setBounds(214, 96, 160, 23);
+		btnCadastrar.setBounds(214, 93, 160, 23);
 		frmCadastrarInvestimentos.getContentPane().add(btnCadastrar);
 		
 		JButton btnCancelar = new JButton("Cancelar");

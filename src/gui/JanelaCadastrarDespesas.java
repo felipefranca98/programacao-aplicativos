@@ -1,7 +1,6 @@
 package gui;
 
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JComboBox;
@@ -97,7 +96,6 @@ public class JanelaCadastrarDespesas {
 		panelTipo.add(rdbtnMensal);
 		
 		JButton btnCadastrar = new JButton("Cadastrar");
-		btnCadastrar.setEnabled(false);
 		btnCadastrar.setBounds(214, 123, 160, 23);
 		frmCadastrarDespesas.getContentPane().add(btnCadastrar);
 		

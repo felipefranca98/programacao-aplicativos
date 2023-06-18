@@ -1,9 +1,7 @@
 package gui;
 
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
-import javax.swing.JToggleButton;
 import javax.swing.JTabbedPane;
 import javax.swing.border.TitledBorder;
 import javax.swing.JPanel;
@@ -70,13 +68,13 @@ public class JanelaResumos {
 	private void initialize() {
 		frmResumos = new JFrame();
 		frmResumos.setTitle("Resumos");
-		frmResumos.setBounds(100, 100, 600, 600);
+		frmResumos.setBounds(100, 100, 800, 600);
 		frmResumos.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmResumos.getContentPane().setLayout(null);
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.setBorder(new TitledBorder(null, "Resumo", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		tabbedPane.setBounds(10, 153, 564, 397);
+		tabbedPane.setBounds(10, 153, 594, 397);
 		frmResumos.getContentPane().add(tabbedPane);
 		
 		JTabbedPane tabbedPaneMensal = new JTabbedPane(JTabbedPane.LEFT);
@@ -262,18 +260,18 @@ public class JanelaResumos {
 		JComboBox comboBox = new JComboBox();
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"2023", "2022", "2021", "2020", "2019", "..."}));
 		comboBox.setSelectedItem(fmt.format(data));
-		comboBox.setBounds(270, 120, 90, 22);
+		comboBox.setBounds(290, 120, 90, 22);
 		frmResumos.getContentPane().add(comboBox);
 		
 		JLabel lblAno = new JLabel("ANO");
 		lblAno.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblAno.setHorizontalAlignment(SwingConstants.TRAILING);
-		lblAno.setBounds(214, 120, 46, 22);
+		lblAno.setBounds(234, 120, 46, 22);
 		frmResumos.getContentPane().add(lblAno);
 		
 		JPanel panelModulos = new JPanel();
 		panelModulos.setBorder(new TitledBorder(null, "M\u00F3dulos", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		panelModulos.setBounds(10, 11, 564, 85);
+		panelModulos.setBounds(10, 11, 594, 85);
 		frmResumos.getContentPane().add(panelModulos);
 		panelModulos.setLayout(new GridLayout(0, 2, 0, 0));
 		
@@ -321,7 +319,22 @@ public class JanelaResumos {
 		panelModulos.add(btnNewButton_1);
 		
 		JSeparator separator = new JSeparator();
-		separator.setBounds(10, 107, 564, 2);
+		separator.setBounds(10, 107, 594, 2);
 		frmResumos.getContentPane().add(separator);
+		
+		JSeparator separator_1 = new JSeparator();
+		separator_1.setOrientation(SwingConstants.VERTICAL);
+		separator_1.setBounds(614, 11, 1, 539);
+		frmResumos.getContentPane().add(separator_1);
+		
+		JButton btnLogout = new JButton("Logout");
+		btnLogout.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				gui.JanelaInicial.main(null);
+				frmResumos.dispose();
+			}
+		});
+		btnLogout.setBounds(625, 11, 149, 57);
+		frmResumos.getContentPane().add(btnLogout);
 	}
 }

@@ -1,7 +1,6 @@
 package gui;
 
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -72,7 +71,6 @@ public class JanelaCadastrarCategorias {
 		frmCadastrarCategorias.getContentPane().add(btnCancelar);
 		
 		JButton btnCadastrar = new JButton("Cadastrar");
-		btnCadastrar.setEnabled(false);
 		btnCadastrar.setBounds(150, 36, 100, 23);
 		frmCadastrarCategorias.getContentPane().add(btnCadastrar);
 	}
