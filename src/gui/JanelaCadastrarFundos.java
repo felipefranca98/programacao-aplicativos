@@ -14,12 +14,14 @@ import javax.swing.SwingConstants;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.ButtonGroup;
 
 public class JanelaCadastrarFundos {
 
 	private JFrame frmCadastrarFundos;
 	private JTextField textFundoOcasional;
 	private JTextField textValor;
+	private final ButtonGroup buttonGroup = new ButtonGroup();
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -61,12 +63,14 @@ public class JanelaCadastrarFundos {
 		frmCadastrarFundos.getContentPane().add(panelTipo);
 		
 		JRadioButton rdbtnOcasional = new JRadioButton("Ocasional");
+		buttonGroup.add(rdbtnOcasional);
 		rdbtnOcasional.setSelected(true);
 		rdbtnOcasional.setHorizontalAlignment(SwingConstants.CENTER);
 		rdbtnOcasional.setBounds(6, 19, 163, 23);
 		panelTipo.add(rdbtnOcasional);
 		
 		JRadioButton rdbtnMensal = new JRadioButton("Mensal");
+		buttonGroup.add(rdbtnMensal);
 		rdbtnMensal.setHorizontalAlignment(SwingConstants.CENTER);
 		rdbtnMensal.setBounds(6, 45, 163, 23);
 		panelTipo.add(rdbtnMensal);
