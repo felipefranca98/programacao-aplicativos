@@ -42,18 +42,18 @@ public class JanelaFundoDespesas {
 	private void initialize() {
 		frmFundoDespesas = new JFrame();
 		frmFundoDespesas.setTitle("Fundo de Despesas Ocasionais");
-		frmFundoDespesas.setBounds(100, 100, 800, 320);
+		frmFundoDespesas.setBounds(100, 100, 800, 600);
 		frmFundoDespesas.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmFundoDespesas.getContentPane().setLayout(null);
 		
 		JPanel panel = new JPanel();
 		panel.setLayout(null);
 		panel.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Tabela", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		panel.setBounds(10, 120, 594, 150);
+		panel.setBounds(10, 120, 594, 430);
 		frmFundoDespesas.getContentPane().add(panel);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 24, 574, 115);
+		scrollPane.setBounds(10, 24, 574, 395);
 		panel.add(scrollPane);
 		
 		table = new JTable();
@@ -68,7 +68,7 @@ public class JanelaFundoDespesas {
 		
 		JSeparator separator = new JSeparator();
 		separator.setOrientation(SwingConstants.VERTICAL);
-		separator.setBounds(613, 11, 2, 260);
+		separator.setBounds(613, 11, 2, 539);
 		frmFundoDespesas.getContentPane().add(separator);
 		
 		JPanel panelInvestimentos = new JPanel();

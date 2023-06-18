@@ -62,6 +62,9 @@ public class JanelaCadastrarCategorias {
 					gui.JanelaDespesas.main(null);
 					frmCadastrarCategorias.dispose();
 					break;
+				default:
+					frmCadastrarCategorias.dispose();
+					break;
 				}
 			}
 		});
