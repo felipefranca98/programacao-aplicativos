@@ -19,6 +19,9 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.GridLayout;
 import javax.swing.JSeparator;
 import java.awt.event.ActionListener;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 import java.awt.event.ActionEvent;
 
 public class JanelaResumos {
@@ -235,6 +238,12 @@ public class JanelaResumos {
 		));
 		scrollPaneDez.setViewportView(tableDez);
 		
+		LocalDate data = LocalDate.now();
+		Locale local = new Locale("pt", "BR");
+		DateTimeFormatter fmt = DateTimeFormatter.ofPattern("M", local);
+		
+		tabbedPaneMensal.setSelectedIndex(Integer.valueOf(fmt.format(data)) - 1);
+		
 		JScrollPane scrollPaneAnual = new JScrollPane();
 		tabbedPane.addTab("Anual", null, scrollPaneAnual, null);
 		
@@ -248,9 +257,11 @@ public class JanelaResumos {
 		));
 		scrollPaneAnual.setViewportView(tableAnual);
 		
+		fmt = DateTimeFormatter.ofPattern("YYYY", local);
+		
 		JComboBox comboBox = new JComboBox();
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"2023", "2022", "2021", "2020", "2019", "..."}));
-		comboBox.setSelectedIndex(0);
+		comboBox.setSelectedItem(fmt.format(data));
 		comboBox.setBounds(270, 120, 90, 22);
 		frmResumos.getContentPane().add(comboBox);
 		
