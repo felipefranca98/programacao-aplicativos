@@ -67,7 +67,7 @@ public class TipoDAO {
 	}
 	
 	
-	public List<Tipo> buscarCategoria(Tipo categoria) throws SQLException {
+	public List<Tipo> buscarCategoria(String categoria) throws SQLException {
 		System.out.println("Buscando");
 
 		PreparedStatement st = null;
@@ -76,7 +76,7 @@ public class TipoDAO {
 		try {
 
 			st = conn.prepareStatement("select * from tipo where Modulo = ? ");
-			st.setString(1, categoria.getModulo());
+			st.setString(1, categoria);
 			rs = st.executeQuery();
 
 			List<Tipo> listaCursos = new ArrayList<>();
