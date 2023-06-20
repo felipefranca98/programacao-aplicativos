@@ -33,7 +33,7 @@ public class InvestimentoService {
 			investimento.setTotal(investimento.getOcasional());
 		}
 
-		List<Investimento> retorno = new InvestimentoDAO(conn).buscarInvestimento(investimento);
+		List<Investimento> retorno = new InvestimentoDAO(conn).buscarInvestimento(investimento.getUser());
 		
 		if(retorno == null )
 		{	System.out.println("\t Vorto nulo Cadastrar Investimento");
@@ -80,6 +80,20 @@ public class InvestimentoService {
 		return false;
 
 	}
+
+public List<Investimento> buscarInvestimento(int id) throws SQLException, IOException {
+		
+
+
+		Connection conn = BancoDados.conectar();
+		System.out.println("\t Buscar Investimento");		
+
+		List<Investimento> retorno = new InvestimentoDAO(conn).buscarInvestimento(id);
+		
+				return retorno;
+
+	}
+
 	
 	public boolean editarInvestimento(Investimento investimento) throws SQLException, IOException {
 		
