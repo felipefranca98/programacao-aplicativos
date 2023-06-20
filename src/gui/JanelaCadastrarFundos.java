@@ -275,6 +275,43 @@ public class JanelaCadastrarFundos {
 			public void actionPerformed(ActionEvent e) {
 				
 				despesa = montaDespesa();  
+				  if( mes.equals("JAN"))
+		        	  despesa.setMes(1);
+				  
+				  if( mes.equals("FEV"))
+		        	  despesa.setMes(2);
+				  
+				  if( mes.equals("MAR"))
+		        	  despesa.setMes(3);
+				  
+				  if( mes.equals("ABR"))
+		        	  despesa.setMes(4);
+				  
+				  if( mes.equals("MAI"))
+		        	  despesa.setMes(5);
+				  
+				  if( mes.equals("JUN"))
+		        	  despesa.setMes(6);
+				  
+				  if( mes.equals("JUL"))
+		        	  despesa.setMes(7);
+				  
+				  if( mes.equals("AGO"))
+		        	  despesa.setMes(8);
+				  
+				  if( mes.equals("SET"))
+		        	  despesa.setMes(9);
+				  
+				  if( mes.equals("OUT"))
+		        	  despesa.setMes(10);
+				  
+				  if( mes.equals("NOV"))
+		        	  despesa.setMes(11);
+				  
+				  if( mes.equals("DEZ"))
+		        	  despesa.setMes(12);
+				  
+				     System.out.println("Mes   " + despesa.getMes());
 				despesaService = new DespesasOcasionaisService();
 				
 				try {
@@ -319,6 +356,7 @@ public class JanelaCadastrarFundos {
 		cbMes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				    mes = (String)cbMes.getSelectedItem();
+				    
 			        System.out.println("Mes   " + mes);
 			}
 		});
@@ -370,32 +408,7 @@ public class JanelaCadastrarFundos {
         	  lg.setMensal(0.0);
           }
           
-          switch(mes) {
-          case "JAN":
-        	  lg.setMes(1);
-          case "FEV":
-        	  lg.setMes(2);
-          case "MAR":
-        	  lg.setMes(3);
-          case "ABR":
-        	  lg.setMes(4);
-          case "MAI":
-        	  lg.setMes(5);
-          case "JUN":
-        	  lg.setMes(6);
-          case "JUL":
-        	  lg.setMes(7);
-          case "AGO":
-        	  lg.setMes(8);
-          case "SET":
-        	  lg.setMes(9);
-          case "OUT":
-        	  lg.setMes(10);
-          case "NOV":
-        	  lg.setMes(11);
-          case "DEZ":
-        	  lg.setMes(12);
-          }
+          
 
           return lg;  
   
