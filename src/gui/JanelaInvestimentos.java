@@ -1,7 +1,10 @@
+
+
 package gui;
 
 import java.awt.EventQueue;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 import javax.swing.border.EtchedBorder;
@@ -16,12 +19,30 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+import entity.Investimento;
+import entity.Usuario;
+import service.InvestimentoService;
+import service.UsuarioService;
+
+import java.awt.Component;
+import java.util.ArrayList;
+import java.util.List;
+
+
 public class JanelaInvestimentos {
 
+	private static InvestimentoService investimentoService;
 	private JFrame frmInvestimentos;
-	private JTable table;
+	private JTable tabela;
+	private static  Usuario user = new Usuario();
+	private DefaultTableModel modelo = new DefaultTableModel();
+	private static UsuarioService usuarioService = new UsuarioService();
 
-	public static void main(String[] args) {
+	public static void main(Usuario s) {
+		user.setId(s.getId());
+		user.setLogin(s.getLogin());
+		user.setSenha(s.getSenha());
+		System.out.println( "Investimento user id " + user.getId());
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -35,6 +56,7 @@ public class JanelaInvestimentos {
 	}
 
 	public JanelaInvestimentos() {
+		criaJTable();
 		initialize();
 	}
 
@@ -55,15 +77,7 @@ public class JanelaInvestimentos {
 		scrollPane.setBounds(10, 24, 574, 395);
 		panel.add(scrollPane);
 		
-		table = new JTable();
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-			},
-			new String[] {
-				"Investimento", "Mensal", "Ocasional", "Total Anual"
-			}
-		));
-		scrollPane.setViewportView(table);
+		scrollPane.setViewportView(tabela);
 		
 		JSeparator separator = new JSeparator();
 		separator.setOrientation(SwingConstants.VERTICAL);
@@ -79,7 +93,7 @@ public class JanelaInvestimentos {
 		JButton btnCadastrarInv = new JButton("<html><center>Cadastrar<br>Investimento</center>");
 		btnCadastrarInv.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				gui.JanelaCadastrarInvestimentos.main(null);
+				gui.JanelaCadastrarInvestimentos.main(user);
 				frmInvestimentos.dispose();
 			}
 		});
@@ -110,7 +124,7 @@ public class JanelaInvestimentos {
 		JButton btnRendimentos = new JButton("Rendimentos");
 		btnRendimentos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				gui.JanelaRendimentos.main(null);
+				gui.JanelaRendimentos.main(user);
 				frmInvestimentos.dispose();
 			}
 		});
@@ -119,7 +133,7 @@ public class JanelaInvestimentos {
 		JButton btnDespesas = new JButton("Despesas");
 		btnDespesas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				gui.JanelaDespesas.main(null);
+				gui.JanelaDespesas.main(user);
 				frmInvestimentos.dispose();
 			}
 		});
@@ -132,7 +146,7 @@ public class JanelaInvestimentos {
 		JButton btnFundos = new JButton("Fundos de Despesas Ocasionais");
 		btnFundos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				gui.JanelaFundoDespesas.main(null);
+				gui.JanelaFundoDespesas.main(user);
 				frmInvestimentos.dispose();
 			}
 		});
@@ -141,7 +155,7 @@ public class JanelaInvestimentos {
 		JButton btnResumos = new JButton("Resumos");
 		btnResumos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				gui.JanelaResumos.main(null);
+				gui.JanelaResumos.main(user);
 				frmInvestimentos.dispose();
 			}
 		});
@@ -157,11 +171,53 @@ public class JanelaInvestimentos {
 		JButton btnLogout = new JButton("Logout");
 		btnLogout.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				try {
+					 user.setLog(usuarioService.logoutUsuario(user));  
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					Component frame = null;
+					JOptionPane.showMessageDialog(frame,"ERROR");
+				} 
 				gui.JanelaInicial.main(null);
 				frmInvestimentos.dispose();
 			}
 		});
 		btnLogout.setBounds(625, 11, 149, 57);
 		frmInvestimentos.getContentPane().add(btnLogout);
+	}
+	
+	private void criaJTable() {
+		tabela = new JTable(modelo);
+		modelo.addColumn("Investimento");
+		modelo.addColumn("Mensal");
+		modelo.addColumn("Ocasional");
+		modelo.addColumn("Total Anual");
+		tabela.getColumnModel().getColumn(0)
+		.setPreferredWidth(80);
+		tabela.getColumnModel().getColumn(1)
+		.setPreferredWidth(120);
+		tabela.getColumnModel().getColumn(1)
+		.setPreferredWidth(80);
+		tabela.getColumnModel().getColumn(1)
+		.setPreferredWidth(120);
+		pesquisar(modelo);
+	}
+
+	public static void pesquisar(DefaultTableModel modelo) {
+		investimentoService = new InvestimentoService();
+		modelo.setNumRows(0);
+		List <Investimento> investimento= new ArrayList<>();
+		try {
+			System.out.println("\t Buscar Investimento");
+			investimento = investimentoService.buscarInvestimento(user.getId());
+		} catch (Exception e){
+			Component frame = null;
+			JOptionPane.showMessageDialog(frame,"ERROR");}
+			
+
+		for (Investimento investimento1 : investimento) {
+			modelo.addRow(new Object[]{investimento1.getInvestimento(), investimento1.getMensal(),
+					investimento1.getOcasional(), investimento1.getTotal()});
+		}
 	}
 }
