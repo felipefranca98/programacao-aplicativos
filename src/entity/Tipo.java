@@ -3,14 +3,16 @@ package entity;
 public class Tipo {
 
 	private int id;
+	private int user;
 	private String nome;
 	private String modulo;
 
 	
-	public Tipo(String nome, String modulo) {
+	public Tipo(String nome, String modulo,  int user) {
 		super();
 		this.nome = nome;
 		this.modulo = modulo;
+		this.user = user;
 	}
 
 
@@ -49,5 +51,13 @@ public class Tipo {
 		this.id = id;
 	}
 	
+	public int getUser() {
+		// TODO Auto-generated method stub
+		return user;
+	}
 	
+	public void setUser(int user) {
+		// TODO Auto-generated method stub
+		this.user = user;
+	}
 }
