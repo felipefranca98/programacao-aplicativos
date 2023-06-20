@@ -7,7 +7,9 @@ import java.util.List;
 
 import dao.BancoDados;
 import dao.DespesasDAO;
+import dao.InvestimentoDAO;
 import entity.Despesas;
+import entity.Investimento;
 
 public class DespesasService {
 
@@ -33,7 +35,7 @@ public class DespesasService {
 			despesa.setTotal(despesa.getOcasional());
 		}
 
-		List<Despesas> retorno = new DespesasDAO(conn).buscarDespesa(despesa);
+		List<Despesas> retorno = new DespesasDAO(conn).buscarDespesa(despesa.getUser());
 		
 		if(retorno == null )
 		{	System.out.println("\t Vorto Nulo Cadastrar Despesas");
@@ -78,6 +80,19 @@ public class DespesasService {
 		
 		}
 		return false;
+
+	}
+	
+public List<Despesas> buscarDespesa(int id) throws SQLException, IOException {
+		
+
+
+		Connection conn = BancoDados.conectar();
+		System.out.println("\t Buscar Investimento");		
+
+		List<Despesas> retorno = new DespesasDAO(conn).buscarDespesa(id);
+		
+				return retorno;
 
 	}
 	
