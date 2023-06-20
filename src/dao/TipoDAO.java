@@ -28,10 +28,10 @@ public class TipoDAO {
 
 		try {
 
-			st = conn.prepareStatement("insert into tipo (Nome, Modulo) values (?, ?)");
-
-			st.setString(1, categoria.getNome());
-			st.setString(2, categoria.getModulo());
+			st = conn.prepareStatement("insert into tipo (User, Nome, Modulo) values (?, ?, ?)");
+			st.setInt(1, categoria.getUser());
+			st.setString(2, categoria.getNome());
+			st.setString(3, categoria.getModulo());
 
 			int linhasManipuladas = st.executeUpdate();
 			
@@ -67,7 +67,7 @@ public class TipoDAO {
 	}
 	
 	
-	public List<Tipo> buscarCategoria(String categoria) throws SQLException {
+	public List<Tipo> buscarCategoria(String categoria, int id) throws SQLException {
 		System.out.println("Buscando");
 
 		PreparedStatement st = null;
@@ -75,8 +75,9 @@ public class TipoDAO {
 
 		try {
 
-			st = conn.prepareStatement("select * from tipo where Modulo = ? ");
+			st = conn.prepareStatement("select * from tipo where Modulo = ? and User = ? ");
 			st.setString(1, categoria);
+			st.setInt(2, id);
 			rs = st.executeQuery();
 
 			List<Tipo> listaCursos = new ArrayList<>();
