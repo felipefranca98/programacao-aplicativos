@@ -169,6 +169,21 @@ public class ResumoAnoService {
 
 	}
 	
+	
+	
+	public List<ResumoAno> listarResumoAno(ResumoAno resumo) throws SQLException, IOException {
+		
+		System.out.println("\t Cadastrar Resumo Ano");
+
+		Connection conn = BancoDados.conectar();
+		
+
+
+		List<ResumoAno> retorno = new ResumoAnoDAO(conn).buscarResumoAno(resumo);
+		
+			return retorno;
+}
+	
 	/*	public boolean editarResumoAno(ResumoAno resumo) throws SQLException, IOException {
 		
 		Connection conn = BancoDados.conectar();
