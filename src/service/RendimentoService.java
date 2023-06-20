@@ -6,7 +6,9 @@ import java.sql.SQLException;
 import java.util.List;
 
 import dao.BancoDados;
+import dao.InvestimentoDAO;
 import dao.RendimentoDAO;
+import entity.Investimento;
 import entity.Rendimento;
 
 public class RendimentoService {
@@ -34,7 +36,7 @@ public class RendimentoService {
 		}
 
 
-		List<Rendimento> retorno = new RendimentoDAO(conn).buscarRendimento(rendimento);
+		List<Rendimento> retorno = new RendimentoDAO(conn).buscarRendimento(rendimento.getUser());
 		
 		if(retorno == null )
 		{	System.out.println("\t Vorto nulo Cadastrar Rendimento");
@@ -103,6 +105,20 @@ public class RendimentoService {
 		
 		return false;
 	}
+	
+public List<Rendimento> buscarRendimento(int id) throws SQLException, IOException {
+		
+
+
+		Connection conn = BancoDados.conectar();
+		System.out.println("\t Buscar Investimento");		
+
+		List<Rendimento> retorno = new RendimentoDAO(conn).buscarRendimento(id);
+		
+				return retorno;
+
+	}
+
 	
 	public boolean excluirRendimento(Rendimento rendimento) throws SQLException, IOException {
 		
