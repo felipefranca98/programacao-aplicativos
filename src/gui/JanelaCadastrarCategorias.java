@@ -146,6 +146,7 @@ public class JanelaCadastrarCategorias {
         lg.setNome(this.textCategoria.getText());  
           
         lg.setModulo(modulo);  
+        lg.setUser(user.getId());
 
         return lg;  
 
