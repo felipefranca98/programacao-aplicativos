@@ -362,32 +362,41 @@ public class JanelaResumos {
 		ResumoMes retorno = new ResumoMes();
 		retorno.setUser(user.getId());
 		retorno.setAno(Integer.parseInt(ano));
-		switch(mes) {
-        case "JAN":
-        	retorno.setMes(1);
-        case "FEV":
-        	retorno.setMes(2);
-        case "MAR":
-        	retorno.setMes(3);
-        case "ABR":
-        	retorno.setMes(4);
-        case "MAI":
-        	retorno.setMes(5);
-        case "JUN":
-        	retorno.setMes(6);
-        case "JUL":
-        	retorno.setMes(7);
-        case "AGO":
-        	retorno.setMes(8);
-        case "SET":
-        	retorno.setMes(9);
-        case "OUT":
-        	retorno.setMes(10);
-        case "NOV":
-        	retorno.setMes(11);
-        case "DEZ":
-        	retorno.setMes(12);
-        }
+		 if( mes.equals("JAN"))
+			 retorno.setMes(1);
+		  
+		  if( mes.equals("FEV"))
+			  retorno.setMes(2);
+		  
+		  if( mes.equals("MAR"))
+			  retorno.setMes(3);
+		  
+		  if( mes.equals("ABR"))
+			  retorno.setMes(4);
+		  
+		  if( mes.equals("MAI"))
+			  retorno.setMes(5);
+		  
+		  if( mes.equals("JUN"))
+			  retorno.setMes(6);
+		  
+		  if( mes.equals("JUL"))
+			  retorno.setMes(7);
+		  
+		  if( mes.equals("AGO"))
+			  retorno.setMes(8);
+		  
+		  if( mes.equals("SET"))
+			  retorno.setMes(9);
+		  
+		  if( mes.equals("OUT"))
+			  retorno.setMes(10);
+		  
+		  if( mes.equals("NOV"))
+			  retorno.setMes(11);
+		  
+		  if( mes.equals("DEZ"))
+			  retorno.setMes(12);
 		System.out.println("Ano " + retorno.getAno());
 		System.out.println("Mes aaaqweqwea " + retorno.getMes());
 
@@ -403,7 +412,7 @@ public class JanelaResumos {
 	private void criaJTableMes() {
 		
 		modeloMes.addColumn("Descricao");
-		modeloMes.addColumn("Total Anual");
+		modeloMes.addColumn("Total Mensal");
 		tabela.getColumnModel().getColumn(0)
 		.setPreferredWidth(80);
 		tabela.getColumnModel().getColumn(1)
@@ -416,32 +425,41 @@ public class JanelaResumos {
 		ResumoMes retorno = new ResumoMes();
 		retorno.setUser(user.getId());
 		retorno.setAno(Integer.parseInt(ano));
-		switch(mes) {
-        case "JAN":
-        	retorno.setMes(1);
-        case "FEV":
-        	retorno.setMes(2);
-        case "MAR":
-        	retorno.setMes(3);
-        case "ABR":
-        	retorno.setMes(4);
-        case "MAI":
-        	retorno.setMes(5);
-        case "JUN":
-        	retorno.setMes(6);
-        case "JUL":
-        	retorno.setMes(7);
-        case "AGO":
-        	retorno.setMes(8);
-        case "SET":
-        	retorno.setMes(9);
-        case "OUT":
-        	retorno.setMes(10);
-        case "NOV":
-        	retorno.setMes(11);
-        case "DEZ":
-        	retorno.setMes(12);
-        }
+		 if( mes.equals("JAN"))
+			 retorno.setMes(1);
+		  
+		  if( mes.equals("FEV"))
+			  retorno.setMes(2);
+		  
+		  if( mes.equals("MAR"))
+			  retorno.setMes(3);
+		  
+		  if( mes.equals("ABR"))
+			  retorno.setMes(4);
+		  
+		  if( mes.equals("MAI"))
+			  retorno.setMes(5);
+		  
+		  if( mes.equals("JUN"))
+			  retorno.setMes(6);
+		  
+		  if( mes.equals("JUL"))
+			  retorno.setMes(7);
+		  
+		  if( mes.equals("AGO"))
+			  retorno.setMes(8);
+		  
+		  if( mes.equals("SET"))
+			  retorno.setMes(9);
+		  
+		  if( mes.equals("OUT"))
+			  retorno.setMes(10);
+		  
+		  if( mes.equals("NOV"))
+			  retorno.setMes(11);
+		  
+		  if( mes.equals("DEZ"))
+			  retorno.setMes(12);
 		
 		System.out.println("Ano " + retorno.getAno());
 		System.out.println("Mes aaaa " + retorno.getMes());
