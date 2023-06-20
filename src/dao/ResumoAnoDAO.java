@@ -107,7 +107,7 @@ public class ResumoAnoDAO {
 
 				ResumoAno categoriaResultado = new ResumoAno();
 				categoriaResultado.setUser(rs.getInt("User"));
-				categoriaResultado.setAno(rs.getInt("ano"));
+				categoriaResultado.setAno(rs.getInt("Ano"));
 				categoriaResultado.setRendimentoTotal(rs.getFloat("RendimentoTotal"));
 				categoriaResultado.setInvestimentoTotal(rs.getFloat("InvestimentoTotal"));
 				categoriaResultado.setFundoDespesaTotal(rs.getFloat("DespesasOcasionaisTotal"));
