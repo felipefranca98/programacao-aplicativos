@@ -102,12 +102,12 @@ public class ResumoMesDAO {
 				categoriaResultado.setUser(rs.getInt("User"));
 				categoriaResultado.setMes(rs.getInt("Mes"));
 				categoriaResultado.setAno(rs.getInt("Ano"));
-				categoriaResultado.setRendimento(rs.getDouble("User"));
-				categoriaResultado.setInvestimento(rs.getDouble("User"));
-				categoriaResultado.setDespesa(rs.getDouble("User"));
-				categoriaResultado.setValorDisponivelMes(rs.getDouble("User"));
-				categoriaResultado.setValorDespesasMes(rs.getDouble("User"));
-				categoriaResultado.setTotal(rs.getDouble("User"));
+				categoriaResultado.setRendimento(rs.getDouble("Rendimento"));
+				categoriaResultado.setInvestimento(rs.getDouble("Investimento"));
+				categoriaResultado.setDespesa(rs.getDouble("Despesas"));
+				categoriaResultado.setValorDisponivelMes(rs.getDouble("Valor_Disponiveis_Mes"));
+				categoriaResultado.setValorDespesasMes(rs.getDouble("Valor_Despesas_Mes"));
+				categoriaResultado.setTotal(rs.getDouble("Total"));
 
 				listaCursos.add(categoriaResultado);
 			}
