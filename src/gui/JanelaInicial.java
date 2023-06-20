@@ -25,6 +25,7 @@ public class JanelaInicial {
 	private JTextField textUsuario;
 	private JPasswordField textSenha;
 	private Usuario s;
+	private int a;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -104,16 +105,21 @@ public class JanelaInicial {
 				usuarioService = new UsuarioService();
 				
 				try {
-					 s.setId(usuarioService.cadastrarUsuario(s));  
+					  a = usuarioService.cadastrarUsuario(s);  
 				} catch (Exception e1) {
 					// TODO Auto-generated catch block
 					Component frame = null;
 					JOptionPane.showMessageDialog(frame,"ERROR");
 				} 
 			
+				if(a == 3 || a ==2) {
+					 JOptionPane.showMessageDialog(null, "Erro ao cadastrar cadastrado.");
+				}
+				else {
+				
 				                  JOptionPane.showMessageDialog(null, "Usuario cadastrado.");  
 				                  limpaTela();  
-		
+				}
 				/* Verifica se usuario existe e cadastra */
 			}
 		});
