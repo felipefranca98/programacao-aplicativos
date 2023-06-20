@@ -75,7 +75,7 @@ public class InvestimentoDAO {
 	}
 
 	
-	public List<Investimento> buscarInvestimento(Investimento investimento) throws SQLException {
+	public List<Investimento> buscarInvestimento(int i) throws SQLException {
 
 		PreparedStatement st = null;
 		ResultSet rs = null;
@@ -83,7 +83,7 @@ public class InvestimentoDAO {
 		try {
 
 			st = conn.prepareStatement("select * from investimento where User = ? order by Id");
-			st.setInt(1, investimento.getUser());
+			st.setInt(1, i);
 			rs = st.executeQuery();
 
 			List<Investimento> listaCursos = new ArrayList<>();
