@@ -6,7 +6,9 @@ import java.sql.SQLException;
 import java.util.List;
 
 import dao.BancoDados;
+import dao.InvestimentoDAO;
 import dao.TipoDAO;
+import entity.Investimento;
 import entity.Tipo;
 
 
@@ -27,7 +29,7 @@ public class TipoService {
 		Connection conn = BancoDados.conectar();
 		
 
-		List<Tipo> retorno = new TipoDAO(conn).buscarCategoria(categoria);
+		List<Tipo> retorno = new TipoDAO(conn).buscarCategoria(categoria.getModulo());
 		if(retorno.size() == 0 )
 		{
 			System.out.println("Vorto nulo Cadastrar Categoria");
@@ -68,6 +70,20 @@ public class TipoService {
 		}
 		return false;
 	}
+	
+public List<Tipo> buscarTipo(String modulo) throws SQLException, IOException {
+		
+
+
+		Connection conn = BancoDados.conectar();
+		System.out.println("\t Buscar Investimento");		
+
+		List<Tipo> retorno = new TipoDAO(conn).buscarCategoria(modulo);
+		
+				return retorno;
+
+	}
+
 	
 	public boolean editarCategoria(Tipo categoria) throws SQLException, IOException {
 		
