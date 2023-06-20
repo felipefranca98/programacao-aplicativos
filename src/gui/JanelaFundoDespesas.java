@@ -1,7 +1,9 @@
+
 package gui;
 
 import java.awt.EventQueue;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 import javax.swing.border.EtchedBorder;
@@ -16,12 +18,30 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+
+import entity.DespesasOcasionais;
+import entity.Usuario;
+import service.DespesasOcasionaisService;
+import service.UsuarioService;
+
+import java.awt.Component;
+import java.util.ArrayList;
+import java.util.List;
+
 public class JanelaFundoDespesas {
 
+	private static DespesasOcasionaisService despesasService;
+	private JTable tabela;
+	private DefaultTableModel modelo = new DefaultTableModel();
+	private static  Usuario user = new Usuario();
 	private JFrame frmFundoDespesas;
-	private JTable table;
+	private static UsuarioService usuarioService = new UsuarioService();
+	
 
-	public static void main(String[] args) {
+	public static void main(Usuario s) {
+		user.setId(s.getId());
+		user.setLogin(s.getLogin());
+		user.setSenha(s.getSenha());
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -35,6 +55,7 @@ public class JanelaFundoDespesas {
 	}
 
 	public JanelaFundoDespesas() {
+		criaJTable();
 		initialize();
 	}
 
@@ -55,15 +76,7 @@ public class JanelaFundoDespesas {
 		scrollPane.setBounds(10, 24, 574, 395);
 		panel.add(scrollPane);
 		
-		table = new JTable();
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-			},
-			new String[] {
-				"Fundo Ocasional", "Mensal", "Ocasional", "Total Anual"
-			}
-		));
-		scrollPane.setViewportView(table);
+		scrollPane.setViewportView(tabela);
 		
 		JSeparator separator = new JSeparator();
 		separator.setOrientation(SwingConstants.VERTICAL);
@@ -79,7 +92,7 @@ public class JanelaFundoDespesas {
 		JButton btnCadastrarFundo = new JButton("<html><center>Cadastrar<br>Fundo</center>");
 		btnCadastrarFundo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				gui.JanelaCadastrarFundos.main(null);
+				gui.JanelaCadastrarFundos.main(user);
 				frmFundoDespesas.dispose();
 			}
 		});
@@ -100,7 +113,7 @@ public class JanelaFundoDespesas {
 		JButton btnRendimentos = new JButton("Rendimentos");
 		btnRendimentos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				gui.JanelaRendimentos.main(null);
+				gui.JanelaRendimentos.main(user);
 				frmFundoDespesas.dispose();
 			}
 		});
@@ -109,7 +122,7 @@ public class JanelaFundoDespesas {
 		JButton btnDespesas = new JButton("Despesas");
 		btnDespesas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				gui.JanelaDespesas.main(null);
+				gui.JanelaDespesas.main(user);
 				frmFundoDespesas.dispose();
 			}
 		});
@@ -118,7 +131,7 @@ public class JanelaFundoDespesas {
 		JButton btnInvestimentos = new JButton("Investimentos");
 		btnInvestimentos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				gui.JanelaInvestimentos.main(null);
+				gui.JanelaInvestimentos.main(user);
 				frmFundoDespesas.dispose();
 			}
 		});
@@ -131,7 +144,7 @@ public class JanelaFundoDespesas {
 		JButton btnResumos = new JButton("Resumos");
 		btnResumos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				gui.JanelaResumos.main(null);
+				gui.JanelaResumos.main(user);
 				frmFundoDespesas.dispose();
 			}
 		});
@@ -147,6 +160,13 @@ public class JanelaFundoDespesas {
 		JButton btnLogout = new JButton("Logout");
 		btnLogout.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				try {
+					 user.setLog(usuarioService.logoutUsuario(user));  
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					Component frame = null;
+					JOptionPane.showMessageDialog(frame,"ERROR");
+				} 
 				gui.JanelaInicial.main(null);
 				frmFundoDespesas.dispose();
 			}
@@ -154,5 +174,42 @@ public class JanelaFundoDespesas {
 		btnLogout.setBounds(625, 11, 149, 57);
 		frmFundoDespesas.getContentPane().add(btnLogout);
 	}
+	
+	private void criaJTable() {
+		tabela = new JTable(modelo);
+		modelo.addColumn("Fundo Ocasional");
+		modelo.addColumn("Mensal");
+		modelo.addColumn("Ocasional");
+		modelo.addColumn("Total Anual");
+		tabela.getColumnModel().getColumn(0)
+		.setPreferredWidth(120);
+		tabela.getColumnModel().getColumn(1)
+		.setPreferredWidth(80);
+		tabela.getColumnModel().getColumn(1)
+		.setPreferredWidth(80);
+		tabela.getColumnModel().getColumn(1)
+		.setPreferredWidth(80);
+		pesquisar(modelo);
+	}
+
+	public static void pesquisar(DefaultTableModel modelo) {
+		despesasService = new DespesasOcasionaisService();
+		modelo.setNumRows(0);
+		List <DespesasOcasionais> despesas= new ArrayList<>();
+		int a =1;
+		try {
+			System.out.println("\t Buscar Investimento");
+			despesas = despesasService.buscarDespesaOcasionais(user.getId());
+		} catch (Exception e){
+			Component frame = null;
+			JOptionPane.showMessageDialog(frame,"ERROR");}
+			
+
+		for (DespesasOcasionais despesas1 : despesas) {
+			modelo.addRow(new Object[]{despesas1.getFundo(), despesas1.getMensal(),
+					despesas1.getOcasional(), despesas1.getTotal()});
+		}
+	}
+
 
 }
