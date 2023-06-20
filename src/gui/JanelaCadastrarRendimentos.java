@@ -301,6 +301,43 @@ public class JanelaCadastrarRendimentos {
 			public void actionPerformed(ActionEvent e) {
 				
 				rendimento = montaRendimento();  
+				  if( mes.equals("JAN"))
+					  rendimento.setMes(1);
+				  
+				  if( mes.equals("FEV"))
+					  rendimento.setMes(2);
+				  
+				  if( mes.equals("MAR"))
+					  rendimento.setMes(3);
+				  
+				  if( mes.equals("ABR"))
+					  rendimento.setMes(4);
+				  
+				  if( mes.equals("MAI"))
+					  rendimento.setMes(5);
+				  
+				  if( mes.equals("JUN"))
+					  rendimento.setMes(6);
+				  
+				  if( mes.equals("JUL"))
+					  rendimento.setMes(7);
+				  
+				  if( mes.equals("AGO"))
+					  rendimento.setMes(8);
+				  
+				  if( mes.equals("SET"))
+					  rendimento.setMes(9);
+				  
+				  if( mes.equals("OUT"))
+					  rendimento.setMes(10);
+				  
+				  if( mes.equals("NOV"))
+					  rendimento.setMes(11);
+				  
+				  if( mes.equals("DEZ"))
+		        	  rendimento.setMes(12);
+				  
+				     System.out.println("Mes   " + rendimento.getMes());
 				rendimentoService = new RendimentoService();
 				System.out.println(rendimento);
 				
@@ -347,6 +384,7 @@ public class JanelaCadastrarRendimentos {
 		cbMes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				    mes = (String)cbMes.getSelectedItem();
+				    
 			        System.out.println("Mes   " + mes);
 			}
 		});
@@ -397,32 +435,7 @@ public class JanelaCadastrarRendimentos {
       	  lg.setMensal(0.0);
         }
         
-        switch(mes) {
-        case "JAN":
-      	  lg.setMes(1);
-        case "FEV":
-      	  lg.setMes(2);
-        case "MAR":
-      	  lg.setMes(3);
-        case "ABR":
-      	  lg.setMes(4);
-        case "MAI":
-      	  lg.setMes(5);
-        case "JUN":
-      	  lg.setMes(6);
-        case "JUL":
-      	  lg.setMes(7);
-        case "AGO":
-      	  lg.setMes(8);
-        case "SET":
-      	  lg.setMes(9);
-        case "OUT":
-      	  lg.setMes(10);
-        case "NOV":
-      	  lg.setMes(11);
-        case "DEZ":
-      	  lg.setMes(12);
-        }
+      
 
         return lg;  
 
@@ -441,7 +454,7 @@ public class JanelaCadastrarRendimentos {
 		List <Tipo> categoria= new ArrayList<>();
 		try {
 			System.out.println("\t Buscar Investimento");
-			categoria = tipoService.buscarTipo("Rendimento");
+			categoria = tipoService.buscarTipo("Rendimento", user.getId());
 		} catch (Exception e){
 			Component frame = null;
 			JOptionPane.showMessageDialog(frame,"ERROR");}
